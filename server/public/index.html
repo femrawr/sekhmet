@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>sekhmet server - loading</title>
+    </head>
+
+    <script>
+        const sess = localStorage.getItem('sekhmet.last');
+        if (sess) {
+            window.location.href = `/pages/control.html?s=${encodeURIComponent(sess)}`;
+        } else {
+            window.location.href = '/pages/sessions.html';
+        }
+    </script>
+</html>

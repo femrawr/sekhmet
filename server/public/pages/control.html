@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="/style/shared.css">
+        <link rel="stylesheet" href="/style/control.css">
+
+        <title>sekhmet server - control</title>
+    </head>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        const id = params.get('s');
+        if (!id) {
+            window.location.href = '/pages/sessions.html';
+        }
+
+        try {
+            const list = JSON.parse(localStorage.getItem('sekhmet.sessions')) || [];
+            const exists = list.some(s => s.id === id);
+            if (!exists) throw new Error();
+        } catch(_) {
+            window.location.href = '/pages/sessions.html';
+        }
+    </script>
+
+    <body>
+        <div class="container">
+            <div class="side-bar">
+                <div class="buttons">
+                    <button class="icon sessions">
+                        <img src="/assets/icons/sessions.svg" alt="Sessions">
+                        <span class="label">Sessions</span>
+                    </button>
+
+                    <button class="icon themes">
+                        <img src="/assets/icons/themes.svg" alt="Themes">
+                        <span class="label">Themes</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="logs"></div>
+
+                <div class="command-bar">
+                    <input type="text" class="input">
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="/js/shared.js"></script>
+    <script src="/js/socket.js"></script>
+    <script src="/js/control.js"></script>
+</html>

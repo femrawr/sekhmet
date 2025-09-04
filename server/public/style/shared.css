@@ -1,0 +1,22 @@
+:root {
+    --accent: rgba(88, 166, 255, 0.3);
+    --accent-hover: rgba(88, 166, 255, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    height: 100vh;
+    background: #1a1a2e;
+    background-image: url('/assets/backgrounds/purple-leaves.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #c9d1d9;
+    overflow: hidden;
+}
